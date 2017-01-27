@@ -83,6 +83,14 @@ export const OPERATORS = {
   },
   'notContains': function (r, row, field, value) {
     return row(field).default([]).contains(value).not()
+  },
+  'like': function notContains(r, row, field, value) {
+    var v = '(i?)' + value // Case-insensitive
+    return row(field).default(null).match(v);
+  },
+  'notLike': function notContains(r, row, field, value) {
+    var v = '(i?)' + value // Case-insensitive
+    return row(field).default(null).match(v).not();
   }
 }
 

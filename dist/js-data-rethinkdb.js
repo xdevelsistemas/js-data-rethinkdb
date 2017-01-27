@@ -299,13 +299,12 @@ var OPERATORS = {
     return row(field).default([]).contains(value);
   },
   'like': function notContains(r, row, field, value) {
-    return row(field).default([]).contains(value).not();
     var v = '(i?)' + value // Case-insensitive
-    row(field).default(null).match(v);
+    return row(field).default(null).match(v);
   },
   'notLike': function notContains(r, row, field, value) {
     var v = '(i?)' + value // Case-insensitive
-    row(field).default(null).match(v).not();
+    return row(field).default(null).match(v).not();
   }
 
 
