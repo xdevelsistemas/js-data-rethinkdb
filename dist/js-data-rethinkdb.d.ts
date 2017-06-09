@@ -34,6 +34,8 @@ export interface OPERATORS {
   'notIn': Function
   'contains': Function
   'notContains': Function
+  'like': Function
+  'notLike': Function
 }
 export interface version {
   full: string

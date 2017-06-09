@@ -94,7 +94,16 @@ export const OPERATORS = {
     return getRowField(field).default([]).contains(value)
   },
   'notContains': function (r, row, field, value) {
+
     return getRowField(field).default([]).contains(value).not()
+  },
+  'like': function notContains(r, row, field, value) {
+    var v = '(i?)' + value // Case-insensitive
+    return getRowField(field).default(null).match(v);
+  },
+  'notLike': function notContains(r, row, field, value) {
+    var v = '(i?)' + value // Case-insensitive
+    return getRowField(field).default(null).match(v).not();
   }
 }
 
